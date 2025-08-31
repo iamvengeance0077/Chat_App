@@ -5,16 +5,12 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 
-
-const SignUp = () => {
-
-   const [show,setShow]=useState(false);
+const CreatePass = () => {
+    const [show,setShow]=useState(false);
 
   const handleShow=()=>{
     setShow(!show);
   }
-
-
   return (
     <div className="bg-[url('/bg.jpg')] h-screen w-full bg-no-repeat bg-center bg-fixed
     bg-cover flex justify-center items-center" >
@@ -24,30 +20,27 @@ const SignUp = () => {
           <div className="w-65 md:w-80 h-full flex flex-col justify-between"> 
             <div className="flex flex-col justify-center items-center">
             <img className="w-[80px] md:w-[100px]" src="/logo.png"/>
-            <h1 className="text-[30px] font-bold">Sign up</h1>
+            <h1 className="text-[30px] font-bold">Create password</h1>
+            <p className="text-[13px] text-center md:text-[16px] text-[#8F6EB0]">Please enter a new password. Your new password must be different from previous password.</p>
           </div>
-          <div className="flex flex-col gap-4 mb-4 relative">
-            <TextInput placeholder="Name" type="text"/>
-            <TextInput placeholder="Email" type="text"/>
-             <TextInput 
+          <div className="flex flex-col gap-4 mb-10 relative">
+            <TextInput 
             maxLength={12}
-            placeholder="Password" 
+            placeholder="New password" 
             type={show ? "password" : "text"}/>
-            <p onClick={handleShow} className="absolute right-2 bottom-2 text-[#8F6EB0] cursor-pointer text-xl">
+            <p onClick={handleShow} className="absolute right-2 top-2 text-[#8F6EB0] cursor-pointer text-xl">
               {show ? <FaEye/> : <FaEyeSlash/>}</p>
+            <TextInput type="password" placeholder="Confirm password"/>  
           </div >
           <div className=" mb-10">
-            <Buttn title="SignIn"/>
-            <p className="md:text-[16px] text-[13px] text-center mt-1 ">Already have an account?
-            <Link to="/login" className="transitin duration-400 text-[#F600FF] cursor-pointer hover:text-[#F955FF]
-            font-semibold"> Login</Link></p>
+            <Link to="/success">
+            <Buttn title="Submit"/>
+            </Link>
           </div>
           </div>
-          
         </div>
-       
     </div>
   )
 }
 
-export default SignUp
+export default CreatePass
